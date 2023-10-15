@@ -7,34 +7,34 @@ class Program
 
     static void Main(string[] args)
     {
-        // Создание заметок с разными датами
+        
         notes.Add(new Note("Заметка 1", "Описание 1", new DateTime(2022, 1, 6)));
         notes.Add(new Note("Заметка 2", "Описание 2", new DateTime(2022, 1, 8)));
         notes.Add(new Note("Заметка 3", "Описание 3", new DateTime(2022, 1, 13)));
 
-        int currentNoteIndex = 0; // Индекс текущей заметки
+        int currentNoteIndex = 0; 
 
         while (true)
         {
             Console.Clear();
-            PrintMenu(currentNoteIndex); // Вывод меню с названиями заметок
+            PrintMenu(currentNoteIndex); 
 
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             ConsoleKey key = keyInfo.Key;
 
             if (key == ConsoleKey.LeftArrow)
             {
-                // Переключение на предыдущую заметку
+                
                 currentNoteIndex = (currentNoteIndex - 1 + notes.Count) % notes.Count;
             }
             else if (key == ConsoleKey.RightArrow)
             {
-                // Переключение на следующую заметку
+                
                 currentNoteIndex = (currentNoteIndex + 1) % notes.Count;
             }
             else if (key == ConsoleKey.Enter)
             {
-                // Открытие полной информации о заметке
+                
                 OpenNoteDetails(notes[currentNoteIndex]);
             }
         }
@@ -44,7 +44,7 @@ class Program
     {
         for (int i = 0; i < notes.Count; i++)
         {
-            // Вывод названий заметок с указанием текущей заметки
+            
             if (i == currentNoteIndex)
             {
                 Console.WriteLine($"-> {notes[i].Title}");
